@@ -1,7 +1,14 @@
 #!/bin/bash
 
 # Get the length of the password
-read -p "Provide the length of the password: " pass_length
+while true; do
+    read -p "Provide the length of the password: " pass_length
+    if (( pass_length >= 8 )); then
+        break
+    else
+        echo "Password length must be at least 8 characters."
+    fi
+done
 
 # Define character sets
 uppercase='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
