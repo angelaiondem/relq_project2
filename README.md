@@ -6,10 +6,10 @@ This script automatically updates and upgrades the system whenever it is run. Pl
 ## 2. Spoofing Detection
 The code in this section checks for email spoofing by verifying SPF, DKIM, and DMARC records of an email provided in the .eml format.
 
-Before running the code, ensure the following external libraries are installed:
+Before running the code, ensure the following external library is installed:
 
 ```bash
-pip install dkimpy py3dns dmarc
+pip install dnspython
 ```
 
 
@@ -25,5 +25,9 @@ This script prompts the user to input the desired length of the generated passwo
 
 ## 5. Email Notification for Banned IPs
 This script checks the fail2ban-client jail of sshd and sends an email notification if a banned IP is detected.
-
+The script needs a config.py file that will have the following variables to use the SMTP server:
+```bash
+SMTP_EMAIL = "provide your SMTP email address"
+SMTP_APP_PASS = "provide the pass for authentication"
+```
 Please note that this script needs to be run with sudo privileges to access fail2ban-client.
